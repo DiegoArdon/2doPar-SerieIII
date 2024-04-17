@@ -1,0 +1,32 @@
+Programa #1
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+void aDatos() {
+	ofstream archivo("empleados1.txt");
+
+	if (archivo.is_open()) {
+		string nombre;
+		int edad;
+		int salario;
+		cout << "Ingresar nombre edad y salario(Separado por un espacio, al fianlizar colocar "fin")";
+		while (true) {
+			cin >> nombre;
+			if (nombre == "fin") {
+				break;
+			}
+			cin >> edad;
+			cin >> salario;
+			archivo << nombre << " " << edad << salario << endl;
+		}
+		archivo.close();
+		cout << "No se puede abrir el archivo." << endl;
+	}
+}
+int main() {
+	aDatos();
+	return 0;
+}
